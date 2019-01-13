@@ -1,13 +1,3 @@
-class Driver {
-  constructor(name, startDate) {
-    this.name=name
-    this.startDate=new Date(startDate);
-  }
-  yearsExperienceFromBeginningOf(endDate) {
-    return parseInt(endDate, 10)-parseInt(this.startDate.getFullYear(), 10);
-  }
-}
-
 let eastWest = [
 '1st Avenue',
 '2nd Avenue',
@@ -17,6 +7,16 @@ let eastWest = [
 'Madison Avenue',
 '5th Avenue'
 ];
+
+class Driver {
+  constructor(name, startDate) {
+    this.name=name
+    this.startDate=new Date(startDate);
+  }
+  yearsExperienceFromBeginningOf(endDate) {
+    return parseInt(endDate, 10)-parseInt(this.startDate.getFullYear(), 10);
+  }
+}
 
 class Route {
   constructor(beginningLocation, endingLocation) {

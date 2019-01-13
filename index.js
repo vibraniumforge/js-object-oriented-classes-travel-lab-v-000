@@ -23,15 +23,15 @@ class Route {
     this.beginningLocation=beginningLocation;
     this.endingLocation=endingLocation;
   }
-  
+
   avenueFinder(avenueName) {
     return eastWest.indexOf(avenueName)
   }
 
   blocksTravelled() {
     let horizontalDistance=
-    avenueFinder(this.beginningLocation.horizontal) -
-    avenueFinder(this.endingLocation.horizontal);
+    this.avenueFinder(this.beginningLocation.horizontal) -
+    this.avenueFinder(this.endingLocation.horizontal);
     let verticalDistance=(this.beginningLocation.vertical - this.endingLocation.vertical)
     return Math.abs(horizontalDistance)+ Math.abs(verticalDistance);
   }

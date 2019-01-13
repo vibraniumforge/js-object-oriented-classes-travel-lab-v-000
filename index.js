@@ -33,7 +33,7 @@ class Route {
     this.avenueFinder(this.beginningLocation.horizontal) -
     this.avenueFinder(this.endingLocation.horizontal);
     let verticalDistance=(this.beginningLocation.vertical - this.endingLocation.vertical)
-    return Math.abs(horizontalDistance)+ verticalDistance);
+    return Math.abs(horizontalDistance+ verticalDistance);
   }
 
   estimatedTime(rushHour) {

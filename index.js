@@ -1,13 +1,3 @@
-class Driver {
-  constructor(name, startDate) {
-    this.name=name
-    this.startDate=new Date(startDate);
-  }
-  yearsExperienceFromBeginningOf(endDate) {
-    return parseInt(endDate, 10)-parseInt(this.startDate.getFullYear(), 10);
-  }
-}
-
 let eastWest = [
 '1st Avenue',
 '2nd Avenue',
@@ -18,35 +8,35 @@ let eastWest = [
 '5th Avenue'
 ];
 
+class Driver {
+  constructor(name, startDate) {
+    this.name=name
+    this.startDate=new Date(startDate);
+  }
+  yearsExperienceFromBeginningOf(endDate) {
+    return parseInt(endDate, 10) - parseInt(this.startDate.getFullYear(), 10);
+  }
+}
+
 class Route {
   constructor(beginningLocation, endingLocation) {
     this.beginningLocation=beginningLocation;
     this.endingLocation=endingLocation;
   }
-  blocksTravelled() {
-    let x
-    if (this.beginningLocation.horizontal===this.endingLocation.horizontal) {
-      return Math.abs(parseInt(this.beginningLocation.vertical, 10)-
-      parseInt(this.endingLocation.vertical, 10));
-    }
 
-    else
-       x=( Math.abs(
-        (
-          eastWest.indexOf(this.beginningLocation.horizontal)
-      - eastWest.indexOf(this.endingLocation.horizontal)
-    )
-      +
-      (
-        parseInt(this.beginningLocation.vertical, 10)
-      - parseInt(this.endingLocation.vertical, 10)
-    )
-  ));
-  console.log(x);
-  return x
+  avenueFinder(avenueName) {
+    return eastWest.indexOf(avenueName)
+  }
+
+  blocksTravelled() {
+    let horizontalDistance=
+    this.avenueFinder(this.beginningLocation.horizontal) -
+    this.avenueFinder(this.endingLocation.horizontal);
+    let verticalDistance=(this.beginningLocation.vertical - this.endingLocation.vertical)
+    return Math.abs(horizontalDistance+ verticalDistance);
   }
 
   estimatedTime(rushHour) {
-    return rushHour ? Math.round((this.blocksTravelled()) * .5) : Math.round((this.blocksTravelled()) * .333);
+    return rushHour ? Math.round((this.blocksTravelled()) /2) : Math.round((this.blocksTravelled()) /3);
   }
 }

@@ -47,6 +47,6 @@ class Route {
   }
 
   estimatedTime(rushHour) {
-    return rushHour ? Math.round((this.blocksTravelled()) * .5) : Math.round((this.blocksTravelled()) * .333);
+    return rushHour ? Math.round((this.blocksTravelled()) /2) : Math.round((this.blocksTravelled()) /3);
   }
 }

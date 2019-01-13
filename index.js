@@ -23,26 +23,17 @@ class Route {
     this.beginningLocation=beginningLocation;
     this.endingLocation=endingLocation;
   }
+  
   avenueFinder(avenueName) {
     return eastWest.indexOf(avenueName)
   }
 
   blocksTravelled() {
-    let horizontalDistance=avenueFinder(this.beginningLocation.horizontal)-avenueFinder(this.endingLocation.horizontal)
-    else
-       x=( Math.abs(
-        (
-          eastWest.indexOf(this.beginningLocation.horizontal)
-      - eastWest.indexOf(this.endingLocation.horizontal)
-    )
-      +
-      (
-        parseInt(this.beginningLocation.vertical, 10)
-      - parseInt(this.endingLocation.vertical, 10)
-    )
-  ));
-  console.log(x);
-  return x
+    let horizontalDistance=
+    avenueFinder(this.beginningLocation.horizontal) -
+    avenueFinder(this.endingLocation.horizontal);
+    let verticalDistance=(this.beginningLocation.vertical - this.endingLocation.vertical)
+    return Math.abs(horizontalDistance)+ Math.abs(verticalDistance);
   }
 
   estimatedTime(rushHour) {
